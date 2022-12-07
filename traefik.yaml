@@ -1,0 +1,40 @@
+global:  
+  checkNewVersion: true  
+  sendAnonymousUsage: false  # true by default  
+  
+accesslog:  
+  # format: common  # common, json, logfmt  
+  filePath: /etc/traefic/log/access.log  
+  
+# Entry Points configuration  
+  
+entryPoints:  
+  web:  
+    address: :80  
+    # Redirect to HTTPS    
+    http:  
+      redirections:  
+        entryPoint:  
+          to: websecure  
+          scheme: https  
+  
+  websecure:  
+    address: :443  
+  
+#Default Certificates  
+tls:  
+  certificates:  
+    - certFile: /etc/traefik/certificate.crt  
+      keyFile: /etc/traefik/privkey.key  
+# Disable TLS version 1.0 and 1.1  
+  options:  
+    default:  
+      minVersion: VersionTLS12  
+  
+providers:  
+  docker:  
+    exposedByDefault: false  # Default is true  
+  file:  
+    # watch for dynamic configuration changes  
+    directory: /etc/traefik
+    watch: true
