@@ -9,7 +9,7 @@ services:
       - "80:80"  
       - "443:443"  
     volumes:  
-      - "/zerotraefik:/etc/traefik"  
+      - "/zerotraefik/traefik:/etc/traefik"  
       - "/var/run/docker.sock:/var/run/docker.sock:ro"  
     restart: always  
   
@@ -20,8 +20,8 @@ services:
       - "3180:3180"
       - "9993:9993/udp"  
     volumes:  
-      - /mydata/ztncui:/opt/key-networks/ztncui/etc  
-      - /mydata/zt1:/var/lib/zerotier-one  
+      - /zerotraefik/ztncui:/opt/key-networks/ztncui/etc  
+      - /zerotraefik/zt1:/var/lib/zerotier-one  
     restart: always  
     environment:  
       - "NODE_ENV=production"  
