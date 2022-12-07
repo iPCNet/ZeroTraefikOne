@@ -50,7 +50,7 @@ ___
 ## Usage
 Test deployment by goning to `https://(your.domain.here)` and login with the password set  in the `docker-compse` for `ztncui` under `environment` `- ZTNCUI_PASSWD`
 ### Create network
-1. Log into the `ztncui` via browser in `https://zerotier.bnp.red`
+1. Log into the `ztncui` via browser in `https://(your.domain.here)`
 2. Click `Add network`
 3. Enter the `Network name` and click `Create Network`
 4. Click on tab `Private` and ensure Access control is enabled
